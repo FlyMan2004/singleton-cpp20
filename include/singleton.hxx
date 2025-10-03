@@ -12,6 +12,8 @@ struct export_symbol$ ISingleton
   export_symbol$ constexpr static auto
   instance() noexcept -> DataType &
   {
+    // The instance itself must be exported to ensure it is unique
+    export_symbol$ static DataType s_instance;
     return s_instance;
   }
 
@@ -24,7 +26,4 @@ protected:
   // Ctor should be protected to avoid direct instantiation and exported
   export_symbol$ constexpr
   ISingleton() noexcept = default;
-
-  // The instance itself must be exported to ensure it is unique
-  export_symbol$ static inline DataType s_instance;
 };

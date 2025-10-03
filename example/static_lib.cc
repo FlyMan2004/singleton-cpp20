@@ -9,8 +9,8 @@ namespace static_lib
   export_symbol$ void
   foo() noexcept
   {
-    auto const * const p_obj = std::addressof(example::GoodSingleton::instance());
     std::println("In module \"{:s}\"", module_name);
+    auto const * const p_obj = std::addressof(example::GoodSingleton::instance());
     std::println("  {:>8s}: {:p}", "address", (void const *)p_obj);
     std::println("  {:>8s}: {:s}", "str", p_obj->str);
     std::println("  {:>8s}: {:d}", "value", p_obj->value);
@@ -21,8 +21,8 @@ namespace static_lib
   export_symbol$ void
   bar() noexcept
   {
-    auto const * const p_obj = std::addressof(ISingleton<example::Correct>::instance());
     std::println("In module \"{:s}\"", module_name);
+    auto const * const p_obj = std::addressof(ISingleton<example::Correct>::instance());
     std::println("  {:>8s}: {:p}", "address", (void const *)p_obj);
     std::println("  {:>8s}: {:s}", "str", p_obj->str);
     std::println("  {:>8s}: {:d}", "value", p_obj->value);
@@ -33,8 +33,8 @@ namespace static_lib
   export_symbol$ void
   baz() noexcept
   {
-    auto const * const p_obj = std::addressof(ISingleton<example::Wrong>::instance());
     std::println("In module \"{:s}\"", module_name);
+    auto const * const p_obj = std::addressof(ISingleton<example::Wrong>::instance());
     std::println("  {:>8s}: {:p}", "address", (void const *)p_obj);
     std::println("  {:>8s}: {:s}", "str", p_obj->str);
     std::println("  {:>8s}: {:d}", "value", p_obj->value);

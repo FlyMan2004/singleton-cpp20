@@ -17,6 +17,12 @@ namespace example
     float decimal{ 3.14f };
 
     export_symbol$ constexpr
+    Good() noexcept
+    {
+      std::println("  {:>8s}: Ctor called with this = {:p}", __func__, (void const *)this);
+    }
+
+    export_symbol$ constexpr
     ~Good() = default;
   };
 
@@ -36,6 +42,12 @@ namespace example
     float decimal{ 2.71f };
 
     export_symbol$ constexpr
+    Correct() noexcept
+    {
+      std::println("  {:>8s}: Ctor called with this = {:p}", __func__, (void const *)this);
+    }
+
+    export_symbol$ constexpr
     ~Correct() = default;
   };
 
@@ -45,6 +57,12 @@ namespace example
     std::string_view str{ "Wrong Singleton!" };
     int value{ -1 };
     float decimal{ -3.14f };
+
+    export_symbol$ constexpr
+    Wrong() noexcept
+    {
+      std::println("  {:>8s}: Ctor called with this = {:p}", __func__, (void const *)this);
+    }
 
     export_symbol$ constexpr
     ~Wrong() = default;
